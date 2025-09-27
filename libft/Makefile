@@ -6,7 +6,7 @@
 #    By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 13:35:53 by nluchini          #+#    #+#              #
-#    Updated: 2025/08/30 16:40:18 by nluchini         ###   ########.fr        #
+#    Updated: 2025/09/27 13:45:44 by nluchini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ LIBFT_CORE_FILES =	ft_atoi.c \
 					ft_isascii.c \
 					ft_isdigit.c \
 					ft_isprint.c \
+					ft_isspace.c \
 					ft_islower.c \
 					ft_isupper.c \
 					ft_itoa.c \

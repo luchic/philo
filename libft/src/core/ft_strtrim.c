@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:12:04 by nluchini          #+#    #+#             */
-/*   Updated: 2025/07/13 18:29:17 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:06 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_memcpy((void *)res, (void *)start, end - start);
 	return (res);
 }
-
-// #include <stdio.h>
-// #include <string.h>
-// int main()
-// {
-// 	char *s1 = 
-//"   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
-// 	char *s2 = "Hello \t  Please\n Trim me !";
-
-// 	char *res = ft_strtrim(s1, " \n\t");
-// 	printf("Strtrim: '%s'\n", res);
-// 	if(!strcmp(s2, res))
-// 		printf( "Test passed: Strtrim result is correct.\n" );
-// 	else
-// 		printf( "Test failed: Strtrim
-// result is incorrect. Expected: '%s', Got: '%s'\n" , s2, res);
-// 	printf("Strtrim: '%d'\n", res[strlen(res)]);
-// }

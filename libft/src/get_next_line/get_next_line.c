@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 09:38:42 by nluchini          #+#    #+#             */
-/*   Updated: 2025/08/19 13:35:52 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:10 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,65 +136,3 @@ char	*get_next_line(int fd)
 	}
 	return (res);
 }
-
-// char	*get_next_line(int fd)
-// {
-// 	static t_array	static_buffer;
-// 	static char buffer[BUFFER_SIZE + 1];
-// 	char			*line;
-
-// 	if (fd < 0 || BUFFER_SIZE <= 0)
-// 		return (NULL);
-// 	if (static_buffer.data == NULL)
-// 	{
-// 		static_buffer.data = (char *)ft_realloc(NULL, (BUFFER_SIZE + 1));
-// 		if (static_buffer.data == NULL)
-// 			return (NULL);
-// 		static_buffer.data[0] = '\0';
-// 		static_buffer.size = 0;
-// 		static_buffer.capacity = BUFFER_SIZE;
-// 	}
-// 	if (!ft_read_line(&static_buffer, fd))
-// 		return (ft_free_buff(&static_buffer));
-// 	line = ft_get_line(&static_buffer);
-// 	if (line == NULL)
-// 		return (ft_free_buff(&static_buffer));
-// 	if (line[0] == '\0')
-// 		return (free(line), ft_free_buff(&static_buffer));
-// 	return (line);
-// }
-
-// #include <fcntl.h>
-// #include <limits.h>
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-// #include <unistd.h>
-
-// void	gnl(int fd, char *expected)
-// {
-// 	char	*line;
-
-// 	line = get_next_line(fd);
-// 	if (line == NULL && expected == NULL)
-// 		printf("Test passed: got NULL as expected\n");
-// 	else if (line != NULL && expected != NULL && strcmp(line, expected) == 0)
-// 		printf("Test passed: got '%s' as expected\n", line);
-// 	else
-// 		printf("Test failed: got '%s', expected '%s'\n", line ? line : "NULL",
-// 			expected ? expected : "NULL");
-// 	free(line);
-// }
-
-// int	main(void)
-// {
-
-// 	int fd = open("multiple_nl.txt", O_RDONLY);
-// 	/* 1 */ gnl(fd, "\n");
-// 	/* 2 */ gnl(fd, "\n");
-// 	/* 3 */ gnl(fd, "\n");
-// 	/* 4 */ gnl(fd, "\n");
-// 	/* 5 */ gnl(fd, "\n");
-// 	/* 6 */ gnl(fd, NULL);
-// 	close(fd);
-// }

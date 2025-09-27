@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:40:13 by nluchini          #+#    #+#             */
-/*   Updated: 2025/07/14 09:29:34 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:32 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,33 +106,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (res[i] = NULL, res);
 }
-
-/* #include <stdlib.h>
-#include <stdio.h>
-void leaks(void)
-{
-	system("leaks a.out");
-}
-
-void ft_print(char **res)
-{
-	if (!res)
-		return ;
-	while (*res)
-	{
-		printf("%s\n", *res);
-		res++;
-	}
-	printf("Adress: %p, Value %p\n", res, *res);
-}
-
-int main()
-{
-	char *str = "Hello!";
-	char del = ' ';
-	char **res;
-	res = ft_split(str, del);
-
-	atexit(leaks);
-	ft_print(res);
-} */

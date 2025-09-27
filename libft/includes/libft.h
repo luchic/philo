@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:24:52 by nluchini          #+#    #+#             */
-/*   Updated: 2025/08/30 16:40:14 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@ void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
  * @retval Return 1 if alpha or digit, another case - 0.
  */
 int					ft_isalnum(int c);
+
+/**
+ * @brief  Check if character is a white-space character. (check isspace(3))
+ * @param  c: Current character.
+ * @retval Returns zero if the character tests false and returns non-zero
+ * if the character tests true.
+ */
+int					ft_isspace(int c);
 
 /**
  * @brief	Check if character is alpha.
@@ -280,6 +288,18 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
  *   equal to, or less than 0.
  */
 int					ft_strcmp(const char *s1, const char *s2);
+
+/**
+ * @brief  The ft_strstr() function locates the first occurrence of
+ *   the null-terminated string needle in the string haystack.
+ *   Characters that appear after a `\0' character are not searched.
+ * @param  haystack: String where looking for needle.
+ * @param  needle: Substring that we looking for.
+ * @retval If needle is an empty string, haystack is returned; if needle
+ *  occurs nowhere in haystack, NULL is returned; otherwise a pointer
+ *  to the first character of the first occurrence of needle is returned.
+ */
+char				*ft_strstr(const char *haystack, const char *needle);
 
 /**
  * @brief  The ft_strnstr() function locates the first occurrence of

@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 09:40:05 by nluchini          #+#    #+#             */
-/*   Updated: 2025/07/14 14:28:48 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:01 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,3 @@ int	ft_putlnbr_fd(long n, int fd)
 	}
 	return (ft_putulnbr_base_fd(nbr, base, fd));
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-// #include <string.h>
-// int main()
-// {
-// 	long num = LONG_MIN;
-// 	int res = ft_putlnbr_fd(num, 1);
-// 	printf("\n%ld\n", num);
-// 	printf("\nRes: %d\n", res);
-// }

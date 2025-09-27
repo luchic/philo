@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 19:33:38 by nluchini          #+#    #+#             */
-/*   Updated: 2025/07/11 10:32:16 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:38 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-/* #include <stdio.h>
-int main()
-{
-	void *res = ft_memcpy(NULL, NULL , 0);
-	printf("Res NULL: %p\n", res);
-} */

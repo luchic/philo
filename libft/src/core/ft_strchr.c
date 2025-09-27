@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 11:20:50 by nluchini          #+#    #+#             */
-/*   Updated: 2025/07/08 13:14:45 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:47:04 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-
-/* #include <stdio.h>
-int main()
-{
-	char *ch = ft_strchr("hello", '\0');
-	printf("Result: %p, Value: %c\n", ch, *(ch - 2));
-} */

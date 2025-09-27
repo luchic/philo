@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 15:01:12 by nluchini          #+#    #+#             */
-/*   Updated: 2025/07/14 09:28:57 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/09/27 13:46:58 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,50 +41,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-
-/* 
-#include <stdio.h>
-#include <stdlib.h>
-
-void leaks(void)
-{
-	system("leaks a.out");
-}
-
-void	ft_print_result(t_list *elem)
-{
-	while (elem)
-	{
-		printf("%s\n", (char *)(elem->content));
-		elem = elem->next;
-	}
-}
-
-void *ft_map(void *content)
-{
-	char *value = (char *)content;
-	char *new = (char *)malloc(30);
-	
-	sprintf(new, "__%s", value);
-	return (new);
-}
-
-
-int main()
-{	
-	// to moc malloc i use global variable
-	t_list **array;
-	array = (t_list **)malloc(sizeof(t_list *));
-	*array = NULL;
-
-	ft_lstadd_back(array, ft_lstnew("Hello"));
-	ft_lstadd_back(array, ft_lstnew("World"));
-	ft_lstadd_back(array, ft_lstnew("42"));
-
-	ft_print_result(*array);
-	printf("\n");
-	ft_lstclear(array, free);
-	atexit(leaks);
-	t_list *new_list = ft_lstmap(*array, ft_map, free);
-	ft_print_result(new_list);
-} */
