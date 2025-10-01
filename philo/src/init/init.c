@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:07:04 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/01 20:30:53 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/01 20:37:41 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	init_data(t_data *data)
 		return (0);
 	if (!init_forks(data))
 		return (free(data->philos), free(data->forks), 0);
+	setup_philos(data);
 	return (1);
 }
