@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 17:44:43 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 10:05:38 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/03 10:55:15 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,15 @@ int	get_event(t_data *data, t_event *events, int max_size)
 
 	i = 0;
 	pthread_mutex_lock(&data->queue->lock);
-	while (!is_empty(data->queue))
+	if (is_empty(data->queue))
 	{
+		pthread_mutex_unlock(&data->queue->lock);
+		return (0);
+	}
+	while (!is_empty(data->queue))
+	{	
+		if (i >= max_size)
+			break ;
 		event = peek(data->queue);
 		det_queue(data->queue);
 		events[i++] = event;
