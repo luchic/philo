@@ -6,17 +6,18 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 20:54:18 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 10:12:19 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/03 19:43:09 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_internal.h"
+#include <string.h>
 #include <sys/time.h>
 #include <unistd.h>
 
 void	set_status(t_philo *philo, t_state state)
 {
-	t_event			event;
+	t_event	event;
 
 	event.timestamp = get_delta_ms(philo->data);
 	event.state = state;
@@ -30,6 +31,16 @@ void	set_status(t_philo *philo, t_state state)
 	send_event(philo->data, event);
 }
 
+static void	end_rutine(t_philo *philo)
+{
+	t_event	event;
+
+	memset(&event, 0, sizeof(t_event));
+	event.philo_id = philo->id;
+	event.type = END_ITER;
+	send_event(philo->data, event);
+}
+
 void	run_action(void *arg)
 {
 	t_philo	*philo;
@@ -37,19 +48,22 @@ void	run_action(void *arg)
 	philo = (t_philo *)arg;
 	philo->iterations = 0;
 	if (philo->id % 2 != 0)
-	{
-		usleep(200);
-		thinking(philo);
-	}
+		(usleep(200), thinking(philo));
 	while (1)
 	{
 		philo->iterations++;
-		eating(philo);
-		sleeping(philo);
-		thinking(philo);
+		if (eating(philo))
+			return ;
+		if (get_dead_status(philo->data))
+			return ;
+		if (sleeping(philo))
+			return ;
 		if (philo->data->max_iter > 0
 			&& philo->iterations >= philo->data->max_iter)
 			break ;
+		thinking(philo);
+		if (get_dead_status(philo->data))
+			return ;
 	}
-	return ;
+	end_rutine(philo);
 }
