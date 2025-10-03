@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 18:19:46 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/02 19:27:41 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/03 10:12:33 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	is_fork_taken(t_philo *philo, int is_left)
 {
 	t_event	event;
 
-	event.timestamp = now_ms() - philo->data->start_time;
+	event.timestamp = get_delta_ms(philo->data);
 	event.type = FORK_TAKEN;
 	event.is_left = is_left;
 	event.philo_id = philo->id;

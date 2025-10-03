@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 20:54:18 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/02 21:36:38 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/03 10:12:19 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	set_status(t_philo *philo, t_state state)
 {
 	t_event			event;
 
-	event.timestamp = now_ms() - philo->data->start_time;
+	event.timestamp = get_delta_ms(philo->data);
 	event.state = state;
 	if (state == THINKING)
 		event.type = PHILO_THINKING;
