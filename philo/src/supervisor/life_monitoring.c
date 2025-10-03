@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:43:26 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 12:20:35 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/03 14:21:56 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	update_dead_status_if_dead(t_data *data, t_life_time *life_times)
 	is_dead = 0;
 	while (++i < data->count)
 	{
+		if (life_times[i].id == -1)
+			continue ;
 		if ((int)(current_time - life_times[i].last_meal) > data->time_to_die)
 		{
 			is_dead = 1;
