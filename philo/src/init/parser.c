@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:12:54 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/01 19:55:14 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/02 12:40:45 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	parse_data(int count, char **values, t_data *data)
 	data->time_to_eat = ft_atoi(values[2]);
 	data->time_to_sleep = ft_atoi(values[3]);
 	if (count == 5)
-		data->iterations = ft_atoi(values[4]);
+		data->max_iter = ft_atoi(values[4]);
 	else
-		data->iterations = -1;
+		data->max_iter = -1;
 	return (1);
 }
