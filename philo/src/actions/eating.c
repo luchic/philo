@@ -6,24 +6,39 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 18:19:46 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/01 20:22:40 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/02 19:27:41 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_internal.h"
 #include <unistd.h>
 
+static void	is_fork_taken(t_philo *philo, int is_left)
+{
+	t_event	event;
+
+	event.timestamp = now_ms() - philo->data->start_time;
+	event.type = FORK_TAKEN;
+	event.is_left = is_left;
+	event.philo_id = philo->id;
+	send_event(philo->data, event);
+}
+
 static void	lock_eating(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork);
+		is_fork_taken(philo, 0);
 		pthread_mutex_lock(philo->left_fork);
+		is_fork_taken(philo, 1);
 	}
 	else
 	{
 		pthread_mutex_lock(philo->left_fork);
+		is_fork_taken(philo, 1);
 		pthread_mutex_lock(philo->right_fork);
+		is_fork_taken(philo, 0);
 	}
 }
 
@@ -34,9 +49,9 @@ static void	unlock_eating(t_philo *philo)
 }
 
 void	eating(t_philo *philo)
-{	
-	set_status(philo, EATING);
+{
 	lock_eating(philo);
-	usleep(philo->data->time_to_eat * 1000);
+	set_status(philo, EATING);
+	sleep_ms(philo, philo->data->time_to_eat);
 	unlock_eating(philo);
 }
