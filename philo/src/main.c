@@ -6,14 +6,30 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:22:52 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/02 21:37:42 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/03 19:41:39 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
 #include "philo_internal.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+
+void	cleanup(t_data *data)
+{
+	int	i;
+
+	if (!data)
+		return ;
+	i = -1;
+	while (++i < data->count)
+		pthread_mutex_destroy(&data->forks[i]);
+	pthread_mutex_destroy(&data->is_dead_lock);
+	pthread_mutex_destroy(&data->queue->lock);
+	free(data->philos);
+	free(data->forks);
+	free(data->queue);
+}
 
 static int	start_simulation(t_data *data)
 {
@@ -33,8 +49,11 @@ static int	start_simulation(t_data *data)
 	if (pthread_create(&supervisor, NULL, (void *)run_supervisor,
 			(void *)data) != 0)
 		return (1);
+	i = -1;
+	while (++i < data->count)
+		pthread_join(data->philos[i].pid, NULL);
 	pthread_join(supervisor, NULL);
-	return (0);
+	return (1);
 }
 
 static int	run(t_data *data, int count, char **args)
@@ -45,19 +64,19 @@ static int	run(t_data *data, int count, char **args)
 		return (printf("Error: Failed to parse arguments\n"), 0);
 	if (!init_data(data))
 		return (printf("Error: Failed to initialize philosophers\n"), 0);
-	if (!start_simulation(data))
-		return (printf("Error: Failed to start simulation\n"), 0);
+	start_simulation(data);
 	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	
+
 	memset(&data, 0, sizeof(t_data));
 	if (argc != 5 && argc != 6)
 		return (printf("Error: Invalid number of arguments\n"), 1);
 	run(&data, argc - 1, argv + 1);
-	// cleanup(&data);
+	cleanup(&data);
+	printf("Simulation ended\n");
 	return (0);
 }
