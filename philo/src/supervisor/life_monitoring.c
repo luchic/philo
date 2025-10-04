@@ -6,11 +6,12 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:43:26 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 14:21:56 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/04 14:49:33 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_internal.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -52,6 +53,7 @@ int	update_dead_status_if_dead(t_data *data, t_life_time *life_times)
 		if ((int)(current_time - life_times[i].last_meal) > data->time_to_die)
 		{
 			is_dead = 1;
+			printf("%lu %d died\n", get_delta_ms(data), life_times[i].id);
 			break ;
 		}
 	}

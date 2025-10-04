@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:26:33 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 19:37:01 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/04 14:00:06 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,12 @@ int	run_supervisor(void *arg)
 	{
 		if (is_iter_end(life_times, data->count))
 			break ;
-		if (update_dead_status_if_dead(data, life_times))
-		{
-			printf("%lu %d died\n", get_delta_ms(data), life_times[0].id);
-			break ;
-		}
 		if (!handle_events(data, life_times))
 			break ;
+		if (update_dead_status_if_dead(data, life_times))
+		{
+			break ;
+		}
 		usleep(1000);
 	}
 	free(life_times);

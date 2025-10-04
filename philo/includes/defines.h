@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 13:55:29 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 19:41:11 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/04 14:42:10 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-# define MAX_SIZE 256
+# define MAX_SIZE 1024
 # define SLEEP_INTERVAL 200
 
 typedef struct s_data	t_data;
@@ -42,14 +42,11 @@ typedef enum e_event_type
 typedef struct s_philo
 {
 	int					id;
-	int					is_state_changed;
 	int					iterations;
-	t_state				state;
 	pthread_t			pid;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
 	t_data				*data;
-	unsigned long		last_state_change;
 
 }						t_philo;
 
