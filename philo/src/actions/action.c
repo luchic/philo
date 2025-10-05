@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 20:54:18 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/05 19:45:18 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/05 19:53:49 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	run_action(void *arg)
 			return ;
 		if (get_dead_status(philo->data))
 			return ;
-		if (sleeping(philo))
-			return ;
 		if (philo->data->max_iter > 0
 			&& philo->iterations >= philo->data->max_iter)
 			break ;
+		if (sleeping(philo))
+			return ;
 	}
 	end_rutine(philo);
 }
