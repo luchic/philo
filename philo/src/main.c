@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:22:52 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 19:41:39 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/05 13:09:37 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,5 @@ int	main(int argc, char **argv)
 		return (printf("Error: Invalid number of arguments\n"), 1);
 	run(&data, argc - 1, argv + 1);
 	cleanup(&data);
-	printf("Simulation ended\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:14:23 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/04 14:48:40 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/05 13:20:01 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static unsigned long	get_deadline_ms(t_philo *philo, unsigned long ms)
 	int	ms_unit;
 	int	cur_unit;
 
-	ms_unit = ms / 10;
-	cur_unit = get_delta_ms(philo->data) / 10;
-	if (ms == 0)
-		allignment = cur_unit % 10;
+	ms_unit = ms % 10;
+	cur_unit = get_delta_ms(philo->data) % 10;
+	if (ms_unit == 0)
+		allignment = 0;
 	else
 		allignment = cur_unit % ms_unit;
 	return (get_delta_ms(philo->data) + ms - allignment);
