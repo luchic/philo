@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 20:54:18 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 19:43:09 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/05 18:46:58 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	run_action(void *arg)
 	philo = (t_philo *)arg;
 	philo->iterations = 0;
 	if (philo->id % 2 != 0)
+		(usleep(200), thinking(philo));
+	if (philo->data->count % 2 != 0 && philo->data->count - 1== philo->id)
 		(usleep(200), thinking(philo));
 	while (1)
 	{
