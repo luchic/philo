@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 17:26:33 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/05 19:50:17 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/07 19:51:25 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	handle_events(t_data *data, t_life_time *life_times)
 	{
 		if (batch[i].type == END_ITER)
 		{
-			life_times[batch[i].philo_id].id = -1;
+			life_times[batch[i].philo_id].stop_iter = 1;
 			continue ;
 		}
 		if (batch[i].type == PHILO_EATING)
@@ -62,7 +62,7 @@ static int	is_iter_end(t_life_time *life_times, int count)
 	ended = 1;
 	while (++i < count)
 	{
-		if (life_times[i].id != -1)
+		if (life_times[i].stop_iter == 0)
 		{
 			ended = 0;
 			break ;

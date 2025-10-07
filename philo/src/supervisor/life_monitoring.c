@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:43:26 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/04 14:49:33 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/07 19:45:28 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+static int	is_all_stoped(t_life_time *life_times, int count)
+{
+	int	i;
+
+	i = -1;
+	while (++i < count)
+	{
+		if (life_times[i].stop_iter == 0)
+			return (0);
+	}
+	return (1);
+}
 
 int	init_life_times(t_data *data, t_life_time **life_times)
 {
@@ -48,8 +61,11 @@ int	update_dead_status_if_dead(t_data *data, t_life_time *life_times)
 	is_dead = 0;
 	while (++i < data->count)
 	{
-		if (life_times[i].id == -1)
-			continue ;
+		if (is_all_stoped(life_times, data->count))
+		{
+			set_iter_end(data, 1);
+			return (1);
+		}
 		if ((int)(current_time - life_times[i].last_meal) > data->time_to_die)
 		{
 			is_dead = 1;

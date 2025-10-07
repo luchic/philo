@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 13:55:29 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/04 14:42:10 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/07 18:50:52 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 {
 	int					count;
 	int					is_dead;
+	int					is_phinished;
 	int					max_iter;
 	int					time_to_die;
 	int					time_to_eat;
@@ -76,6 +77,7 @@ typedef struct s_event
 typedef struct s_life_time
 {
 	int					id;
+	int					stop_iter;
 	unsigned long		last_meal;
 }						t_life_time;
 

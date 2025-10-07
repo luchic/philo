@@ -20,6 +20,7 @@ SRC_FILES += $(ACTIONS)sleeping.c
 # Events
 SRC_FILES += $(EVENTS)get_event.c
 SRC_FILES += $(EVENTS)send_event.c
+SRC_FILES += $(EVENTS)end_iter.c
 
 # Inits
 SRC_FILES += $(INIT)init_forks.c

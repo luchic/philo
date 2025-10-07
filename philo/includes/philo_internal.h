@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 13:54:03 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/03 11:31:41 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/07 19:26:40 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,6 @@ t_event			peek(t_queue *q);
 // ============= Events =============
 int				get_event(t_data *data, t_event *events, int max_size);
 void			send_event(t_data *data, t_event event);
+void			set_iter_end(t_data *data, int status);
+
 #endif
