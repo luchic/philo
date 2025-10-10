@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:12:54 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/09 13:21:47 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:26:23 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	parse_data(int count, char **values, t_data *data)
 	}
 	else
 		data->max_iter = -1;
-	if (data->count < 1 || data->time_to_die < 0 || data->time_to_eat < 0
-		|| data->time_to_sleep < 0)
+	if (data->count < 1 || data->count > 200 || data->time_to_die < 0
+		|| data->time_to_eat < 0 || data->time_to_sleep < 0)
 		return (0);
 	return (1);
 }
