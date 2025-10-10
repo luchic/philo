@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:22:52 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/05 13:09:37 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/08 18:19:40 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ int	main(int argc, char **argv)
 	memset(&data, 0, sizeof(t_data));
 	if (argc != 5 && argc != 6)
 		return (printf("Error: Invalid number of arguments\n"), 1);
-	run(&data, argc - 1, argv + 1);
+	if (!run(&data, argc - 1, argv + 1))
+		return (1);
 	cleanup(&data);
 	return (0);
 }
