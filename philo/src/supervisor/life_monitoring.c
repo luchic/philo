@@ -6,7 +6,7 @@
 /*   By: nluchini <nluchini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:43:26 by nluchini          #+#    #+#             */
-/*   Updated: 2025/10/07 19:45:28 by nluchini         ###   ########.fr       */
+/*   Updated: 2025/10/10 16:08:48 by nluchini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	init_life_times(t_data *data, t_life_time **life_times)
 	{
 		(*life_times)[i].id = data->philos[i].id;
 		(*life_times)[i].last_meal = data->start_time;
+		(*life_times)[i].stop_iter = 0;
 	}
 	return (1);
 }
